@@ -29,6 +29,7 @@ namespace PhotoSale
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.UserInputPhotoNumber = new System.Windows.Forms.TextBox();
             this.LabelUserInput = new System.Windows.Forms.Label();
             this.Calculate = new System.Windows.Forms.Button();
@@ -36,6 +37,9 @@ namespace PhotoSale
             this.TotalPrice = new System.Windows.Forms.Label();
             this.UserInputPhotoFormat = new System.Windows.Forms.ComboBox();
             this.UserInputPhotoFormatText = new System.Windows.Forms.Label();
+            this.Hint = new System.Windows.Forms.ToolTip(this.components);
+            this.UserHintNumberPhoto = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.UserHintNumberPhoto)).BeginInit();
             this.SuspendLayout();
             // 
             // UserInputPhotoNumber
@@ -101,11 +105,23 @@ namespace PhotoSale
             this.UserInputPhotoFormatText.TabIndex = 6;
             this.UserInputPhotoFormatText.Text = "Выберите формат фото:";
             // 
+            // UserHintNumberPhoto
+            // 
+            this.UserHintNumberPhoto.Image = global::PhotoSale.Properties.Resources.Info;
+            this.UserHintNumberPhoto.Location = new System.Drawing.Point(61, 26);
+            this.UserHintNumberPhoto.Name = "UserHintNumberPhoto";
+            this.UserHintNumberPhoto.Size = new System.Drawing.Size(10, 19);
+            this.UserHintNumberPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.UserHintNumberPhoto.TabIndex = 7;
+            this.UserHintNumberPhoto.TabStop = false;
+            this.Hint.SetToolTip(this.UserHintNumberPhoto, "Не более 99 фото");
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(271, 193);
+            this.Controls.Add(this.UserHintNumberPhoto);
             this.Controls.Add(this.UserInputPhotoFormatText);
             this.Controls.Add(this.UserInputPhotoFormat);
             this.Controls.Add(this.TotalPrice);
@@ -116,6 +132,7 @@ namespace PhotoSale
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.UserHintNumberPhoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,6 +147,8 @@ namespace PhotoSale
         private System.Windows.Forms.Label TotalPrice;
         private System.Windows.Forms.ComboBox UserInputPhotoFormat;
         private System.Windows.Forms.Label UserInputPhotoFormatText;
+        private System.Windows.Forms.ToolTip Hint;
+        private System.Windows.Forms.PictureBox UserHintNumberPhoto;
     }
 }
 
