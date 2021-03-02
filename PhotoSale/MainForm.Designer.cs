@@ -31,7 +31,6 @@ namespace PhotoSale
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.UserInputPhotoNumber = new System.Windows.Forms.TextBox();
             this.LabelUserInput = new System.Windows.Forms.Label();
             this.Calculate = new System.Windows.Forms.Button();
             this.TotalPriceText = new System.Windows.Forms.Label();
@@ -44,16 +43,10 @@ namespace PhotoSale
             this.label2 = new System.Windows.Forms.Label();
             this.UserInputPrintMode = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.UserInputPhotoNumber = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.UserHintNumberPhoto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserInputPhotoNumber)).BeginInit();
             this.SuspendLayout();
-            // 
-            // UserInputPhotoNumber
-            // 
-            this.UserInputPhotoNumber.Location = new System.Drawing.Point(14, 73);
-            this.UserInputPhotoNumber.MaxLength = 2;
-            this.UserInputPhotoNumber.Name = "UserInputPhotoNumber";
-            this.UserInputPhotoNumber.Size = new System.Drawing.Size(41, 20);
-            this.UserInputPhotoNumber.TabIndex = 0;
             // 
             // LabelUserInput
             // 
@@ -124,7 +117,7 @@ namespace PhotoSale
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(244, 169);
+            this.label1.Location = new System.Drawing.Point(317, 169);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(183, 26);
             this.label1.TabIndex = 8;
@@ -133,7 +126,7 @@ namespace PhotoSale
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(285, 9);
+            this.label2.Location = new System.Drawing.Point(358, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(142, 117);
             this.label2.TabIndex = 9;
@@ -159,12 +152,35 @@ namespace PhotoSale
             this.label3.TabIndex = 11;
             this.label3.Text = "Выберите режим печати:";
             // 
+            // UserInputPhotoNumber
+            // 
+            this.UserInputPhotoNumber.Location = new System.Drawing.Point(12, 74);
+            this.UserInputPhotoNumber.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.UserInputPhotoNumber.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.UserInputPhotoNumber.Name = "UserInputPhotoNumber";
+            this.UserInputPhotoNumber.Size = new System.Drawing.Size(43, 20);
+            this.UserInputPhotoNumber.TabIndex = 12;
+            this.UserInputPhotoNumber.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(439, 204);
+            this.ClientSize = new System.Drawing.Size(512, 204);
+            this.Controls.Add(this.UserInputPhotoNumber);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.UserInputPrintMode);
             this.Controls.Add(this.label2);
@@ -176,7 +192,7 @@ namespace PhotoSale
             this.Controls.Add(this.TotalPriceText);
             this.Controls.Add(this.Calculate);
             this.Controls.Add(this.LabelUserInput);
-            this.Controls.Add(this.UserInputPhotoNumber);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
@@ -184,14 +200,13 @@ namespace PhotoSale
             this.Text = "Печать фото";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UserHintNumberPhoto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserInputPhotoNumber)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox UserInputPhotoNumber;
         private System.Windows.Forms.Label LabelUserInput;
         private System.Windows.Forms.Button Calculate;
         private System.Windows.Forms.Label TotalPriceText;
@@ -204,6 +219,7 @@ namespace PhotoSale
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox UserInputPrintMode;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown UserInputPhotoNumber;
     }
 }
 

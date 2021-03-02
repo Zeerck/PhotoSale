@@ -13,9 +13,9 @@ namespace PhotoSale
                              _wbPhotoPrice12x15 = 7.0f,
                              _wbPhotoPrice18x24 = 24.0f;
 
-        private static string PhotoText9x12 = "Фото 9х12",
-                              PhotoText12x15 = "Фото 12х15",
-                              PhotoText18x24 = "Фото 18х24",
+        private static string PhotoText9x12 = "Фото на 9х12",
+                              PhotoText12x15 = "Фото 12 на 15",
+                              PhotoText18x24 = "Фото 18 на 24",
                               _wbPrintMode = "ЧБ",
                               _cPrintMode = "Цветной";
 
@@ -35,20 +35,22 @@ namespace PhotoSale
             UserInputPrintMode.Items.Add(_cPrintMode);
             UserInputPrintMode.Items.Add(_wbPrintMode);
 
-            UserInputPrintMode.SelectedIndex = 0;
+            UserInputPrintMode.SelectedIndex = 0; //Выбор по умолчанию режим печати "Цветной"
+            UserInputPhotoFormat.SelectedIndex = 0; //Выбор по умолчанию "фото 9 на 12"
         }
 
         private void Calculate_Click(object sender, EventArgs e)
         {
             int UserPhotoNumber = Convert.ToInt32(UserInputPhotoNumber.Text);
+
             if (UserInputPrintMode.SelectedIndex == 0)
             {
-                _wbTotalPriceCalculate(UserPhotoNumber);
+                _cTotalPriceCalculate(UserPhotoNumber);
             }
 
             if (UserInputPrintMode.SelectedIndex == 1)
             {
-                _cTotalPriceCalculate(UserPhotoNumber);
+                _wbTotalPriceCalculate(UserPhotoNumber);
             }
         }
 
@@ -75,9 +77,9 @@ namespace PhotoSale
                 TotalPrice.Text = Convert.ToString(UserPhotoNumber * _wbPhotoPrice9x12) + " руб.";
                 return;
             }
-            if (UserInputPhotoFormat.SelectedIndex == 0 && UserPhotoNumber > 20)
+            if (UserInputPhotoFormat.SelectedIndex == 0 && UserPhotoNumber >= 20)
             {
-                TotalPrice.Text = Convert.ToString(UserPriceWithDiscount9x12) + $" руб. Со скидкой {Discount}%!";
+                TotalPrice.Text = Convert.ToString(UserPriceWithDiscount9x12) + $" руб. Ваша скидка: {TotalDiscount9x12} руб.";
                 return;
             }
             
@@ -86,9 +88,9 @@ namespace PhotoSale
                 TotalPrice.Text = Convert.ToString(UserPhotoNumber * _wbPhotoPrice12x15) + " руб.";
                 return;
             }
-            if (UserInputPhotoFormat.SelectedIndex == 1 && UserPhotoNumber > 20)
+            if (UserInputPhotoFormat.SelectedIndex == 1 && UserPhotoNumber >= 20)
             {
-                TotalPrice.Text = Convert.ToString(UserPriceWithDiscount12x15) + $" руб. Со скидкой {Discount}%!";
+                TotalPrice.Text = Convert.ToString(UserPriceWithDiscount12x15) + $" руб. Ваша скидка: {TotalDiscount12x15} руб.";
                 return;
             }
             
@@ -97,9 +99,9 @@ namespace PhotoSale
                 TotalPrice.Text = Convert.ToString(UserPhotoNumber * _wbPhotoPrice18x24) + " руб.";
                 return;
             }
-            if (UserInputPhotoFormat.SelectedIndex == 2 && UserPhotoNumber > 20)
+            if (UserInputPhotoFormat.SelectedIndex == 2 && UserPhotoNumber >= 20)
             {
-                TotalPrice.Text = Convert.ToString(UserPriceWithDiscount18x24) + $" руб. Со скидкой {Discount}%!";
+                TotalPrice.Text = Convert.ToString(UserPriceWithDiscount18x24) + $" руб. Ваша скидка: {TotalDiscount18x24} руб.";
                 return;
             }
         }
@@ -126,9 +128,9 @@ namespace PhotoSale
                 TotalPrice.Text = Convert.ToString(UserPhotoNumber * _cPhotoPrice9x12) + " руб.";
                 return;
             }
-            if (UserInputPhotoFormat.SelectedIndex == 0 && UserPhotoNumber > 20)
+            if (UserInputPhotoFormat.SelectedIndex == 0 && UserPhotoNumber >= 20)
             {
-                TotalPrice.Text = Convert.ToString(UserPriceWithDiscount9x12) + $" руб. Со скидкой {Discount}%!";
+                TotalPrice.Text = Convert.ToString(UserPriceWithDiscount9x12) + $" руб. Ваша скидка: {TotalDiscount9x12} руб.";
                 return;
             }
             
@@ -137,9 +139,9 @@ namespace PhotoSale
                 TotalPrice.Text = Convert.ToString(UserPhotoNumber * _cPhotoPrice12x15) + " руб.";
                 return;
             }
-            if (UserInputPhotoFormat.SelectedIndex == 1 && UserPhotoNumber > 20)
+            if (UserInputPhotoFormat.SelectedIndex == 1 && UserPhotoNumber >= 20)
             {
-                TotalPrice.Text = Convert.ToString(UserPriceWithDiscount12x15) + $" руб. Со скидкой {Discount}%!";
+                TotalPrice.Text = Convert.ToString(UserPriceWithDiscount12x15) + $" руб. Ваша скидка: {TotalDiscount12x15} руб.";
                 return;
             }
             
@@ -148,9 +150,9 @@ namespace PhotoSale
                 TotalPrice.Text = Convert.ToString(UserPhotoNumber * _cPhotoPrice18x24) + " руб.";
                 return;
             }
-            if (UserInputPhotoFormat.SelectedIndex == 2 && UserPhotoNumber > 20)
+            if (UserInputPhotoFormat.SelectedIndex == 2 && UserPhotoNumber >= 20)
             {
-                TotalPrice.Text = Convert.ToString(UserPriceWithDiscount18x24) + $" руб. Со скидкой {Discount}%!";
+                TotalPrice.Text = Convert.ToString(UserPriceWithDiscount18x24) + $" руб. Ваша скидка: {TotalDiscount18x24} руб.";
                 return;
             }
         }
