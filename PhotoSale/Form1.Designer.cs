@@ -120,7 +120,7 @@ namespace PhotoSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(271, 193);
+            this.ClientSize = new System.Drawing.Size(439, 204);
             this.Controls.Add(this.UserHintNumberPhoto);
             this.Controls.Add(this.UserInputPhotoFormatText);
             this.Controls.Add(this.UserInputPhotoFormat);
@@ -129,8 +129,10 @@ namespace PhotoSale
             this.Controls.Add(this.Calculate);
             this.Controls.Add(this.LabelUserInput);
             this.Controls.Add(this.UserInputPhotoNumber);
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Печать фото";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UserHintNumberPhoto)).EndInit();
             this.ResumeLayout(false);

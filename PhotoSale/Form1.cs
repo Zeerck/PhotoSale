@@ -21,29 +21,62 @@ namespace PhotoSale
             UserInputPhotoFormat.Items.Add(PhotoText18x24);
         }
 
-        private void Main()
-        {
-
-        }
-
         private void Calculate_Click(object sender, EventArgs e)
         {
             int UserPhotoNumber = Convert.ToInt32(UserInputPhotoNumber.Text);
 
+            TotalPriceCalculate(UserPhotoNumber);
+        }
+
+        private void TotalPriceCalculate(int UserPhotoNumber)
+        {
+            //Итоговая цена
+            float TotalPricePhoto9x12 = UserPhotoNumber * PhotoPrice9x12;
+            float TotalPricePhoto12x15 = UserPhotoNumber * PhotoPrice12x15;
+            float TotalPricePhoto18x24 = UserPhotoNumber * PhotoPrice18x24;
+
+            //Итоговая скидка
+            float TotalDiscount9x12 = TotalPricePhoto9x12 * Discount / 100;
+            float TotalDiscount12x15 = TotalPricePhoto12x15 * Discount / 100;
+            float TotalDiscount18x24 = TotalPricePhoto18x24 * Discount / 100;
+
+            //Итоговая цена со скидкой
+            float UserPriceWithDiscount9x12 = TotalPricePhoto9x12 - TotalDiscount9x12;
+            float UserPriceWithDiscount12x15 = TotalPricePhoto12x15 - TotalDiscount12x15;
+            float UserPriceWithDiscount18x24 = TotalPricePhoto18x24 - TotalDiscount18x24;
+
             //Рассчёт суммы взависимости от выбора формата фото
-            if (UserInputPhotoFormat.SelectedIndex == 0) //1 элемент, фото 9 на 12
+            if (UserInputPhotoFormat.SelectedIndex == 0 && UserPhotoNumber < 20) //1 элемент, фото 9 на 12
             {
                 TotalPrice.Text = Convert.ToString(UserPhotoNumber * PhotoPrice9x12) + " руб.";
+                return;
             }
-
-            if (UserInputPhotoFormat.SelectedIndex == 1) //2 элемент, фото 12 на 15
+            if (UserInputPhotoFormat.SelectedIndex == 0 && UserPhotoNumber > 20)
+            {
+                TotalPrice.Text = Convert.ToString(UserPriceWithDiscount9x12) + $" руб. Со скидкой {Discount}%!";
+                return;
+            }
+            
+            if (UserInputPhotoFormat.SelectedIndex == 1 && UserPhotoNumber < 20) //2 элемент, фото 12 на 15
             {
                 TotalPrice.Text = Convert.ToString(UserPhotoNumber * PhotoPrice12x15) + " руб.";
+                return;
             }
-
-            if (UserInputPhotoFormat.SelectedIndex == 2) //3 элемент, фото 18 на 24
+            if (UserInputPhotoFormat.SelectedIndex == 1 && UserPhotoNumber > 20)
+            {
+                TotalPrice.Text = Convert.ToString(UserPriceWithDiscount12x15) + $" руб. Со скидкой {Discount}%!";
+                return;
+            }
+            
+            if (UserInputPhotoFormat.SelectedIndex == 2 && UserPhotoNumber < 20) //3 элемент, фото 18 на 24
             {
                 TotalPrice.Text = Convert.ToString(UserPhotoNumber * PhotoPrice18x24) + " руб.";
+                return;
+            }
+            if (UserInputPhotoFormat.SelectedIndex == 2 && UserPhotoNumber > 20)
+            {
+                TotalPrice.Text = Convert.ToString(UserPriceWithDiscount18x24) + $" руб. Со скидкой {Discount}%!";
+                return;
             }
         }
     }
