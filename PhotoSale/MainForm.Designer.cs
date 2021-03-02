@@ -40,7 +40,7 @@ namespace PhotoSale
             this.Hint = new System.Windows.Forms.ToolTip(this.components);
             this.UserHintNumberPhoto = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.Prices = new System.Windows.Forms.Label();
             this.UserInputPrintMode = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.UserInputPhotoNumber = new System.Windows.Forms.NumericUpDown();
@@ -117,22 +117,19 @@ namespace PhotoSale
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(317, 169);
+            this.label1.Location = new System.Drawing.Point(298, 169);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(183, 26);
+            this.label1.Size = new System.Drawing.Size(202, 26);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Акция!\r\nПри печати от 20 фото скидка 10%";
+            this.label1.Text = "Акция!\r\nПри печати более 20 фото скидка 10%";
             // 
-            // label2
+            // Prices
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(358, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 117);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Цветные:\r\nФото 9 на 12 — 8,5 рублей\r\nФото 12 на 15 — 11 рублей\r\nФото 18 на 24 — 3" +
-    "2 рубля\r\n\r\nЧБ:\r\nФото 9 на 12 — 5 рублей\r\nФото 12 на 15 — 7 рублей\r\nФото 18 на 24" +
-    " — 24 рубля";
+            this.Prices.AutoSize = true;
+            this.Prices.Location = new System.Drawing.Point(317, 9);
+            this.Prices.Name = "Prices";
+            this.Prices.Size = new System.Drawing.Size(0, 13);
+            this.Prices.TabIndex = 9;
             // 
             // UserInputPrintMode
             // 
@@ -183,7 +180,7 @@ namespace PhotoSale
             this.Controls.Add(this.UserInputPhotoNumber);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.UserInputPrintMode);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.Prices);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.UserHintNumberPhoto);
             this.Controls.Add(this.UserInputPhotoFormatText);
@@ -216,7 +213,7 @@ namespace PhotoSale
         private System.Windows.Forms.ToolTip Hint;
         private System.Windows.Forms.PictureBox UserHintNumberPhoto;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label Prices;
         private System.Windows.Forms.ComboBox UserInputPrintMode;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown UserInputPhotoNumber;
