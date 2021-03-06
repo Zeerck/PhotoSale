@@ -44,6 +44,7 @@ namespace PhotoSale
             this.UserInputPrintMode = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.UserInputPhotoNumber = new System.Windows.Forms.NumericUpDown();
+            this.ChangePricesButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.UserHintNumberPhoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserInputPhotoNumber)).BeginInit();
             this.SuspendLayout();
@@ -117,7 +118,7 @@ namespace PhotoSale
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(298, 169);
+            this.label1.Location = new System.Drawing.Point(158, 207);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(202, 26);
             this.label1.TabIndex = 8;
@@ -171,12 +172,23 @@ namespace PhotoSale
             0,
             0});
             // 
+            // ChangePricesButton
+            // 
+            this.ChangePricesButton.Location = new System.Drawing.Point(338, 172);
+            this.ChangePricesButton.Name = "ChangePricesButton";
+            this.ChangePricesButton.Size = new System.Drawing.Size(121, 23);
+            this.ChangePricesButton.TabIndex = 13;
+            this.ChangePricesButton.Text = "Изменить цены";
+            this.ChangePricesButton.UseVisualStyleBackColor = true;
+            this.ChangePricesButton.Click += new System.EventHandler(this.ChangePricesButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(512, 204);
+            this.ClientSize = new System.Drawing.Size(512, 240);
+            this.Controls.Add(this.ChangePricesButton);
             this.Controls.Add(this.UserInputPhotoNumber);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.UserInputPrintMode);
@@ -194,7 +206,7 @@ namespace PhotoSale
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Печать фото";
+            this.Text = "Стоимость печати";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UserHintNumberPhoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserInputPhotoNumber)).EndInit();
@@ -217,6 +229,7 @@ namespace PhotoSale
         private System.Windows.Forms.ComboBox UserInputPrintMode;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown UserInputPhotoNumber;
+        private System.Windows.Forms.Button ChangePricesButton;
     }
 }
 

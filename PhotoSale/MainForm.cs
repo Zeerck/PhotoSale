@@ -5,7 +5,7 @@ namespace PhotoSale
 {
     public partial class MainForm : Form
     {
-        //PhotoPriceChoice PriceChoice = new PhotoPriceChoice();
+        //static PhotoPriceChoice PriceChoice = new PhotoPriceChoice();
 
         //Приписка c — Цена для цветного фото. Приписка wb — Цена для Чёрно-Белого фото
         public static float cPhotoPrice9x12,
@@ -21,7 +21,7 @@ namespace PhotoSale
                               _wbPrintMode = "ЧБ",
                               _cPrintMode = "Цветной";
 
-        private static int Discount = 10;
+        private static int DiscountPercent = 10;
 
         public MainForm()
         {
@@ -30,24 +30,21 @@ namespace PhotoSale
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            cPhotoPrice9x12 = Convert.ToInt32(PhotoPriceChoice.cPhotoPriceChoice9x12);
-            cPhotoPrice12x15 = Convert.ToInt32(PhotoPriceChoice.cPhotoPriceChoice12x15);
-            cPhotoPrice18x24 = Convert.ToInt32(PhotoPriceChoice.cPhotoPriceChoice18x24);
-
-            wbPhotoPrice9x12 = Convert.ToInt32(PhotoPriceChoice.wbPhotoPriceChoice9x12);
-            wbPhotoPrice12x15 = Convert.ToInt32(PhotoPriceChoice.wbPhotoPriceChoice12x15);
-            wbPhotoPrice18x24 = Convert.ToInt32(PhotoPriceChoice.wbPhotoPriceChoice18x24);
-
+            //Добавление форматов фото в соответсвующий список
             UserInputPhotoFormat.Items.Add(PhotoText9x12);
             UserInputPhotoFormat.Items.Add(PhotoText12x15);
             UserInputPhotoFormat.Items.Add(PhotoText18x24);
 
+            //Добавление режимов печати (Цветоной или ЧБ)
             UserInputPrintMode.Items.Add(_cPrintMode);
             UserInputPrintMode.Items.Add(_wbPrintMode);
 
-            UserInputPrintMode.SelectedIndex = 0; //Выбор по умолчанию режим печати "Цветной"
-            UserInputPhotoFormat.SelectedIndex = 0; //Выбор по умолчанию "фото 9 на 12"
+            //Выбор по умолчанию режим печати "Цветной", чтобы не делать обработку исключений по типу поле пустое
+            UserInputPrintMode.SelectedIndex = 0;
+            //Выбор по умолчанию "фото 9 на 12", чтобы не делать обработку исключений по типу поле пустое
+            UserInputPhotoFormat.SelectedIndex = 0;
 
+            //Поле с ценами
             Prices.Text = $"Цены:\n\n" +
                           $"Цветные:\n" +
                           $"Фото 9 на 12 — {cPhotoPrice9x12} руб.\n" +
@@ -74,6 +71,33 @@ namespace PhotoSale
             }
         }
 
+        private void ChangePricesButton_Click(object sender, EventArgs e)
+        {
+            PhotoPriceChoice photoPriceChoice = new PhotoPriceChoice();
+            DialogResult Result = photoPriceChoice.ShowDialog();
+
+            if (Result == DialogResult.OK)
+            {
+                //Получаем цены, указанные в форме "Выбор цены для фото"
+                cPhotoPrice9x12 = Convert.ToInt32(PhotoPriceChoice.cPhotoPriceChoice9x12);
+                cPhotoPrice12x15 = Convert.ToInt32(PhotoPriceChoice.cPhotoPriceChoice12x15);
+                cPhotoPrice18x24 = Convert.ToInt32(PhotoPriceChoice.cPhotoPriceChoice18x24);
+                wbPhotoPrice9x12 = Convert.ToInt32(PhotoPriceChoice.wbPhotoPriceChoice9x12);
+                wbPhotoPrice12x15 = Convert.ToInt32(PhotoPriceChoice.wbPhotoPriceChoice12x15);
+                wbPhotoPrice18x24 = Convert.ToInt32(PhotoPriceChoice.wbPhotoPriceChoice18x24);
+
+                Prices.Text = $"Цены:\n\n" +
+                              $"Цветные:\n" +
+                              $"Фото 9 на 12 — {cPhotoPrice9x12} руб.\n" +
+                              $"Фото 12 на 15 — {cPhotoPrice12x15} руб\n" +
+                              $"Фото 18 на 24 — {cPhotoPrice18x24} руб\n\n" +
+                              $"ЧБ:\n" +
+                              $"Фото 9 на 12 — {wbPhotoPrice9x12} руб. \n" +
+                              $"Фото 12 на 15 — {wbPhotoPrice12x15} руб. \n" +
+                              $"Фото 18 на 24 — {wbPhotoPrice18x24} руб. \n";
+            }
+        }
+
         private void _wbTotalPriceCalculate(int UserPhotoNumber) //Цена Чёрно-Белых фото
         {
             //Итоговая цена
@@ -82,9 +106,9 @@ namespace PhotoSale
             float TotalPricePhoto18x24 = UserPhotoNumber * wbPhotoPrice18x24;
 
             //Итоговая скидка
-            float TotalDiscount9x12 = TotalPricePhoto9x12 * Discount / 100;
-            float TotalDiscount12x15 = TotalPricePhoto12x15 * Discount / 100;
-            float TotalDiscount18x24 = TotalPricePhoto18x24 * Discount / 100;
+            float TotalDiscount9x12 = TotalPricePhoto9x12 * DiscountPercent / 100;
+            float TotalDiscount12x15 = TotalPricePhoto12x15 * DiscountPercent / 100;
+            float TotalDiscount18x24 = TotalPricePhoto18x24 * DiscountPercent / 100;
 
             //Итоговая цена со скидкой
             float UserPriceWithDiscount9x12 = TotalPricePhoto9x12 - TotalDiscount9x12;
@@ -133,9 +157,9 @@ namespace PhotoSale
             float TotalPricePhoto18x24 = UserPhotoNumber * cPhotoPrice18x24;
 
             //Итоговая скидка
-            float TotalDiscount9x12 = TotalPricePhoto9x12 * Discount / 100;
-            float TotalDiscount12x15 = TotalPricePhoto12x15 * Discount / 100;
-            float TotalDiscount18x24 = TotalPricePhoto18x24 * Discount / 100;
+            float TotalDiscount9x12 = TotalPricePhoto9x12 * DiscountPercent / 100;
+            float TotalDiscount12x15 = TotalPricePhoto12x15 * DiscountPercent / 100;
+            float TotalDiscount18x24 = TotalPricePhoto18x24 * DiscountPercent / 100;
 
             //Итоговая цена со скидкой
             float UserPriceWithDiscount9x12 = TotalPricePhoto9x12 - TotalDiscount9x12;

@@ -42,13 +42,13 @@ namespace PhotoSale
             this._wbPhotoPrice18x24 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this._сPhotoPrice18x24 = new System.Windows.Forms.TextBox();
+            this._cPhotoPrice18x24 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this._сPhotoPrice12x15 = new System.Windows.Forms.TextBox();
+            this._cPhotoPrice12x15 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this._сPhotoPrice9x12 = new System.Windows.Forms.TextBox();
+            this._cPhotoPrice9x12 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -78,6 +78,7 @@ namespace PhotoSale
             // _wbPhotoPrice9x12
             // 
             this._wbPhotoPrice9x12.Location = new System.Drawing.Point(98, 23);
+            this._wbPhotoPrice9x12.MaxLength = 3;
             this._wbPhotoPrice9x12.Name = "_wbPhotoPrice9x12";
             this._wbPhotoPrice9x12.Size = new System.Drawing.Size(50, 20);
             this._wbPhotoPrice9x12.TabIndex = 3;
@@ -103,6 +104,7 @@ namespace PhotoSale
             // _wbPhotoPrice12x15
             // 
             this._wbPhotoPrice12x15.Location = new System.Drawing.Point(98, 53);
+            this._wbPhotoPrice12x15.MaxLength = 3;
             this._wbPhotoPrice12x15.Name = "_wbPhotoPrice12x15";
             this._wbPhotoPrice12x15.Size = new System.Drawing.Size(50, 20);
             this._wbPhotoPrice12x15.TabIndex = 6;
@@ -128,6 +130,7 @@ namespace PhotoSale
             // _wbPhotoPrice18x24
             // 
             this._wbPhotoPrice18x24.Location = new System.Drawing.Point(98, 82);
+            this._wbPhotoPrice18x24.MaxLength = 3;
             this._wbPhotoPrice18x24.Name = "_wbPhotoPrice18x24";
             this._wbPhotoPrice18x24.Size = new System.Drawing.Size(50, 20);
             this._wbPhotoPrice18x24.TabIndex = 9;
@@ -150,12 +153,13 @@ namespace PhotoSale
             this.label6.TabIndex = 20;
             this.label6.Text = "руб.";
             // 
-            // _сPhotoPrice18x24
+            // _cPhotoPrice18x24
             // 
-            this._сPhotoPrice18x24.Location = new System.Drawing.Point(280, 81);
-            this._сPhotoPrice18x24.Name = "_сPhotoPrice18x24";
-            this._сPhotoPrice18x24.Size = new System.Drawing.Size(50, 20);
-            this._сPhotoPrice18x24.TabIndex = 19;
+            this._cPhotoPrice18x24.Location = new System.Drawing.Point(280, 81);
+            this._cPhotoPrice18x24.MaxLength = 3;
+            this._cPhotoPrice18x24.Name = "_cPhotoPrice18x24";
+            this._cPhotoPrice18x24.Size = new System.Drawing.Size(50, 20);
+            this._cPhotoPrice18x24.TabIndex = 19;
             // 
             // label7
             // 
@@ -175,12 +179,13 @@ namespace PhotoSale
             this.label8.TabIndex = 17;
             this.label8.Text = "руб.";
             // 
-            // _сPhotoPrice12x15
+            // _cPhotoPrice12x15
             // 
-            this._сPhotoPrice12x15.Location = new System.Drawing.Point(280, 52);
-            this._сPhotoPrice12x15.Name = "_сPhotoPrice12x15";
-            this._сPhotoPrice12x15.Size = new System.Drawing.Size(50, 20);
-            this._сPhotoPrice12x15.TabIndex = 16;
+            this._cPhotoPrice12x15.Location = new System.Drawing.Point(280, 52);
+            this._cPhotoPrice12x15.MaxLength = 3;
+            this._cPhotoPrice12x15.Name = "_cPhotoPrice12x15";
+            this._cPhotoPrice12x15.Size = new System.Drawing.Size(50, 20);
+            this._cPhotoPrice12x15.TabIndex = 16;
             // 
             // label9
             // 
@@ -200,12 +205,13 @@ namespace PhotoSale
             this.label10.TabIndex = 14;
             this.label10.Text = "руб.";
             // 
-            // _сPhotoPrice9x12
+            // _cPhotoPrice9x12
             // 
-            this._сPhotoPrice9x12.Location = new System.Drawing.Point(280, 23);
-            this._сPhotoPrice9x12.Name = "_сPhotoPrice9x12";
-            this._сPhotoPrice9x12.Size = new System.Drawing.Size(50, 20);
-            this._сPhotoPrice9x12.TabIndex = 13;
+            this._cPhotoPrice9x12.Location = new System.Drawing.Point(280, 23);
+            this._cPhotoPrice9x12.MaxLength = 3;
+            this._cPhotoPrice9x12.Name = "_cPhotoPrice9x12";
+            this._cPhotoPrice9x12.Size = new System.Drawing.Size(50, 20);
+            this._cPhotoPrice9x12.TabIndex = 13;
             // 
             // label11
             // 
@@ -254,13 +260,13 @@ namespace PhotoSale
             this.Controls.Add(this.OkButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this._сPhotoPrice18x24);
+            this.Controls.Add(this._cPhotoPrice18x24);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this._сPhotoPrice12x15);
+            this.Controls.Add(this._cPhotoPrice12x15);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this._сPhotoPrice9x12);
+            this.Controls.Add(this._cPhotoPrice9x12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label4);
@@ -273,9 +279,13 @@ namespace PhotoSale
             this.Controls.Add(this._wbPhotoPrice9x12);
             this.Controls.Add(this._wbPhoto9x12Text);
             this.Controls.Add(this._wbChoicePriceText);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "PhotoPriceChoice";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Выбор цены для фото";
+            this.Load += new System.EventHandler(this.PhotoPriceChoice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -294,13 +304,13 @@ namespace PhotoSale
         private System.Windows.Forms.TextBox _wbPhotoPrice18x24;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox _сPhotoPrice18x24;
+        private System.Windows.Forms.TextBox _cPhotoPrice18x24;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox _сPhotoPrice12x15;
+        private System.Windows.Forms.TextBox _cPhotoPrice12x15;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox _сPhotoPrice9x12;
+        private System.Windows.Forms.TextBox _cPhotoPrice9x12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox1;
