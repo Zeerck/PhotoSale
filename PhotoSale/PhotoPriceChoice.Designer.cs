@@ -240,7 +240,8 @@ namespace PhotoSale
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
-            this.Hint.SetToolTip(this.pictureBox1, "Все цены указаны за штуку");
+            this.Hint.SetToolTip(this.pictureBox1, "Все цены указаны за штуку. Если поля пустые, цена автоматически будет выставлена " +
+        "на 0");
             // 
             // OkButton
             // 
