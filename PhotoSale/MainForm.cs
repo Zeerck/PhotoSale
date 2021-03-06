@@ -5,8 +5,6 @@ namespace PhotoSale
 {
     public partial class MainForm : Form
     {
-        //static PhotoPriceChoice PriceChoice = new PhotoPriceChoice();
-
         //Приписка c — Цена для цветного фото. Приписка wb — Цена для Чёрно-Белого фото
         public static float cPhotoPrice9x12,
                             cPhotoPrice12x15,
@@ -74,6 +72,7 @@ namespace PhotoSale
         private void ChangePricesButton_Click(object sender, EventArgs e)
         {
             PhotoPriceChoice photoPriceChoice = new PhotoPriceChoice();
+
             DialogResult Result = photoPriceChoice.ShowDialog();
 
             if (Result == DialogResult.OK)
@@ -86,6 +85,7 @@ namespace PhotoSale
                 wbPhotoPrice12x15 = Convert.ToInt32(PhotoPriceChoice.wbPhotoPriceChoice12x15);
                 wbPhotoPrice18x24 = Convert.ToInt32(PhotoPriceChoice.wbPhotoPriceChoice18x24);
 
+                //Записываем полученные цены в поле
                 Prices.Text = $"Цены:\n\n" +
                               $"Цветные:\n" +
                               $"Фото 9 на 12 — {cPhotoPrice9x12} руб.\n" +
